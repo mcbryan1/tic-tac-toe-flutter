@@ -18,6 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _winner = '';
   int _turns = 0;
 
+  // Show Winner Dialog
   void _showWinnerDialog() {
     showDialog(
       barrierDismissible: false,
@@ -44,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // Reset the game
   void _reset() {
     setState(() {
       _board = ['', '', '', '', '', '', '', '', ''];
@@ -53,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  // Play the game
   void _play(int index) {
     if (_winner != '' || _board[index] != '') {
       return;
@@ -66,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  // Check the winner
   String _checkWinner() {
     // Check Rows
     for (int i = 0; i < 3; i++) {
