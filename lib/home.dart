@@ -129,26 +129,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight: FontWeight.bold,
                   ),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const MyText(
-                  text: 'Draw',
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(width: 10),
-                IconButton(
-                  icon: const Icon(Icons.refresh),
-                  onPressed: _reset,
-                ),
-              ],
-            ),
+            _winner == "Draw"
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const MyText(
+                        text: ' Game Draw',
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      const SizedBox(width: 10),
+                      IconButton(
+                        icon: const Icon(Icons.refresh),
+                        onPressed: _reset,
+                      ),
+                    ],
+                  )
+                : Container(),
 
-            MyText(
-              text: _winner == 'Draw' ? 'Game Draw' : 'Winner: $_winner',
-              fontSize: 24,
-            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GridView.count(
@@ -160,10 +158,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: _board[index] == 'X'
-                            ? Colors.red
+                            ? Color.fromARGB(255, 114, 244, 54)
                             : _board[index] == 'O'
-                                ? Colors.blue
-                                : Colors.grey,
+                                ? Color.fromARGB(255, 243, 33, 215)
+                                : Color.fromARGB(255, 204, 204, 204),
                         border: Border.all(),
                       ),
                       child: Center(
